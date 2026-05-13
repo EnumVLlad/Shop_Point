@@ -1,0 +1,74 @@
+<main class="dashboard-shell">
+  <section class="hero-card">
+    <div class="hero-content">
+      <span class="eyebrow">LoyaltyCore for E-commerce</span>
+      <h1>Customer loyalty cockpit</h1>
+      <p>Track purchase webhooks, calculate bonus points, manage loyalty tiers, and review real-time transaction history from one cabinet.</p>
+      <div class="hero-actions">
+        <%= link_to "View transactions", "#transactions", class: "button button-primary" %>
+        <%= link_to "Process webhook", "#webhooks", class: "button button-secondary" %>
+        <%= link_to "Special deals", deals_path, class: "button button-deals" %>
+      </div>
+    </div>
+    <div class="points-card">
+      <span class="points-label">Current balance</span>
+      <strong><%= number_with_delimiter(@customer.points_balance) %></strong>
+      <span class="tier-badge"><%= @tier&.name || "Starter" %> tier</span>
+      <div class="progress-track">
+        <div class="progress-bar" style="width: <%= @tier_progress %>%"></div>
+      </div>
+      <small><%= @next_tier ? "#{number_with_delimiter(@points_to_next_tier)} points to #{@next_tier.name}" : "Top tier reached" %></small>
+    </div>
+  </section>
+
+  <section class="stats-grid">
+    <% @stats.each do |stat| %>
+      <article class="stat-card">
+        <span><%= stat[:label] %></span>
+        <strong><%= stat[:value] %></strong>
+        <small><%= stat[:trend] %></small>
+      </article>
+    <% end %>
+  </section>
+
+  <section class="content-grid">
+    <article class="panel" id="transactions">
+      <div class="panel-header">
+        <div>
+          <span class="eyebrow">Live activity</span>
+          <h2>Transaction history</h2>
+        </div>
+        <%= link_to "Export CSV", "#", class: "button button-ghost" %>
+      </div>
+
+      <div class="transaction-list">
+        <% @transactions.each do |transaction| %>
+          <div class="transaction-item">
+            <div>
+              <strong><%= transaction.title %></strong>
+              <span><%= transaction.description %></span>
+            </div>
+            <div class="transaction-meta">
+              <strong><%= number_with_delimiter(transaction.points) %></strong>
+              <span><%= transaction.status %></span>
+              <small><%= time_ago_in_words(transaction.created_at) %> ago</small>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </article>
+
+    <aside class="panel action-panel" id="webhooks">
+      <span class="eyebrow">B2B API</span>
+      <h2>Webhook intake</h2>
+      <p>Incoming purchases are validated, passed through interactors, and converted into loyalty points.</p>
+      <div class="workflow-list">
+        <span>Receive purchase webhook</span>
+        <span>Run bonus calculation</span>
+        <span>Update tier and balance</span>
+        <span>Broadcast transaction update</span>
+      </div>
+      <%= link_to "Open API docs", "#", class: "button button-primary button-wide" %>
+    </aside>
+  </section>
+</main>

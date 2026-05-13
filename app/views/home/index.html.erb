@@ -1,0 +1,30 @@
+<main class="dashboard-shell">
+  <section class="hero-card public-hero">
+    <div class="hero-content">
+      <span class="eyebrow">Shop Point rewards</span>
+      <h1>Discover better deals from your favorite stores</h1>
+      <p>Browse public discounts, seasonal campaigns, and loyalty opportunities. Create an account to unlock your personal LoyaltyCore dashboard.</p>
+      <div class="hero-actions">
+        <%= link_to "Create account", new_user_registration_path, class: "button button-deals" %>
+        <%= link_to "Sign in", new_user_session_path, class: "button button-secondary" %>
+        <%= link_to "View public deals", deals_path, class: "button button-primary" %>
+      </div>
+    </div>
+    <div class="points-card public-card">
+      <span class="points-label">New member bonus</span>
+      <strong>500</strong>
+      <span class="tier-badge">Starter points</span>
+      <p>Register to start collecting points, track transactions, and receive personalized store offers.</p>
+    </div>
+  </section>
+
+  <section class="deals-grid public-deals">
+    <% @public_deals.each do |deal| %>
+      <article class="deal-card">
+        <span class="eyebrow">Store offer</span>
+        <h2><%= deal[:title] %></h2>
+        <p><%= deal[:description] %></p>
+      </article>
+    <% end %>
+  </section>
+</main>

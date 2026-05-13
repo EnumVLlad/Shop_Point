@@ -1,0 +1,24 @@
+<main class="dashboard-shell">
+  <section class="panel deals-page">
+    <div class="panel-header">
+      <div>
+        <span class="eyebrow">Customer rewards</span>
+        <h1>Special deals</h1>
+      </div>
+      <%= link_to "Back to dashboard", root_path, class: "button button-secondary" %>
+    </div>
+
+    <p class="page-lead">This page will later show store discounts, bonus campaigns, and personalized offers for loyal customers.</p>
+
+    <div class="deals-grid">
+      <% @deals.each do |deal| %>
+        <article class="deal-card">
+          <span class="tier-badge"><%= deal[:badge] %></span>
+          <h2><%= deal[:title] %></h2>
+          <p><%= deal[:description] %></p>
+          <%= link_to "View offer", "#", class: "button button-primary button-wide" %>
+        </article>
+      <% end %>
+    </div>
+  </section>
+</main>

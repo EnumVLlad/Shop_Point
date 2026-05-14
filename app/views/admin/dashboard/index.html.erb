@@ -12,11 +12,11 @@
 
     <section class="stats-grid">
       <% @admin_stats.each do |stat| %>
-        <article class="stat-card">
+        <%= link_to stat[:path], class: "stat-card admin-stat-link" do %>
           <span><%= stat[:label] %></span>
           <strong><%= stat[:value] %></strong>
           <small><%= t("admin.overview") %></small>
-        </article>
+        <% end %>
       <% end %>
     </section>
   </section>

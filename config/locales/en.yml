@@ -100,6 +100,7 @@ en:
       points_to_next: "%{points} points to next tier"
       next: "Next: %{tier}"
       policy_scope: "Visible through policy scope"
+      personal_history: "Your personal transaction history"
       multiplier_active: "%{tier} multiplier active"
     transactions:
       eyebrow: "Live activity"
@@ -121,12 +122,38 @@ en:
     user_dashboard: "User dashboard"
     lead: "Manage LoyaltyCore users, campaigns, webhook activity, and future store discounts from this admin panel."
     overview: "Admin overview"
+    back_to_admin: "Back to admin"
     stats:
       registered_users: "Registered users"
       admins: "Admins"
       customers: "Customers"
       transactions: "Transactions"
+    users:
+      all_title: "All registered users"
+      admins_title: "Admin users"
+      customers_title: "Customers"
+      email: "Email"
+      role: "Role"
+      points: "Points"
+      tier: "Tier"
+      transactions: "Transactions"
+      joined: "Joined"
+      actions: "Actions"
+      view_transactions: "Transactions"
+      user_transactions_title: "%{email} transactions"
+    transactions:
+      title: "All transactions"
+      user: "User"
+      title_column: "Transaction"
+      points: "Points"
+      status: "Status"
+      source: "Source"
+      order: "Order"
+      created: "Created"
     access_only: "Admin access only."
+  time:
+    formats:
+      short: "%d %b %Y, %H:%M"
   forms:
     log_in: "Log in"
     sign_up: "Sign up"

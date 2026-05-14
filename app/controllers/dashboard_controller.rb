@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
     @customer = current_user
     @tier = @customer.tier || Tier.order(:min_points).first
     @next_tier = Tier.where("min_points > ?", @customer.points_balance).order(:min_points).first
-    @transactions = policy_scope(Transaction).recent.limit(20)
+    @transactions = @customer.transactions.recent.limit(20)
     @next_tier_points = @next_tier&.min_points || @customer.points_balance
     @points_to_next_tier = [@next_tier_points - @customer.points_balance, 0].max
     @tier_progress = @next_tier ? [(@customer.points_balance.to_f / @next_tier.min_points * 100).round, 100].min : 100
@@ -13,7 +13,7 @@ class DashboardController < ApplicationController
     @stats = [
       { label: t("dashboard.stats.available_points"), value: helpers.number_with_delimiter(@customer.points_balance), trend: t("dashboard.stats.points_to_next", points: helpers.number_with_delimiter(@points_to_next_tier)) },
       { label: t("dashboard.stats.loyalty_tier"), value: @tier&.name || t("dashboard.starter"), trend: @next_tier ? t("dashboard.stats.next", tier: @next_tier.name) : t("dashboard.top_tier") },
-      { label: t("dashboard.stats.purchases_tracked"), value: @transactions.count, trend: t("dashboard.stats.policy_scope") },
+      { label: t("dashboard.stats.purchases_tracked"), value: @transactions.count, trend: t("dashboard.stats.personal_history") },
       { label: t("dashboard.stats.bonus_rate"), value: "#{@tier&.bonus_rate || 1}%", trend: t("dashboard.stats.multiplier_active", tier: @tier&.name || t("dashboard.starter")) }
     ]
   end

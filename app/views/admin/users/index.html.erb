@@ -1,0 +1,40 @@
+<main class="dashboard-shell">
+  <section class="panel admin-table-page">
+    <div class="panel-header">
+      <div>
+        <span class="eyebrow"><%= t("admin.eyebrow") %></span>
+        <h1><%= @title %></h1>
+      </div>
+      <%= link_to t("admin.back_to_admin"), admin_dashboard_path, class: "button button-secondary" %>
+    </div>
+
+    <div class="admin-table-wrapper">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th><%= t("admin.users.email") %></th>
+            <th><%= t("admin.users.role") %></th>
+            <th><%= t("admin.users.points") %></th>
+            <th><%= t("admin.users.tier") %></th>
+            <th><%= t("admin.users.transactions") %></th>
+            <th><%= t("admin.users.joined") %></th>
+            <th><%= t("admin.users.actions") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.email %></td>
+              <td><span class="tier-badge"><%= user.role %></span></td>
+              <td><%= number_with_delimiter(user.points_balance) %></td>
+              <td><%= user.tier&.name || t("dashboard.starter") %></td>
+              <td><%= user.transactions.count %></td>
+              <td><%= l(user.created_at, format: :short) %></td>
+              <td><%= link_to t("admin.users.view_transactions"), admin_user_transactions_path(user, return_to: request.fullpath), class: "button button-secondary button-compact" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

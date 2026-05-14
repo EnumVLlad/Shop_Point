@@ -71,6 +71,7 @@ uk:
       points_to_next: "%{points} балів до наступного рівня"
       next: "Наступний: %{tier}"
       policy_scope: "Видимість обмежена policy_scope"
+      personal_history: "Ваша особиста історія транзакцій"
       multiplier_active: "Множник %{tier} активний"
     transactions:
       eyebrow: "Активність"
@@ -92,12 +93,38 @@ uk:
     user_dashboard: "Кабінет користувача"
     lead: "Керуйте користувачами LoyaltyCore, кампаніями, webhook-активністю та майбутніми знижками магазину з цієї адмін-панелі."
     overview: "Огляд адміністратора"
+    back_to_admin: "Назад до адмін-панелі"
     stats:
       registered_users: "Зареєстровані користувачі"
       admins: "Адміни"
       customers: "Клієнти"
       transactions: "Транзакції"
+    users:
+      all_title: "Усі зареєстровані користувачі"
+      admins_title: "Адміністратори"
+      customers_title: "Клієнти"
+      email: "Email"
+      role: "Роль"
+      points: "Бали"
+      tier: "Рівень"
+      transactions: "Транзакції"
+      joined: "Дата реєстрації"
+      actions: "Дії"
+      view_transactions: "Транзакції"
+      user_transactions_title: "Транзакції %{email}"
+    transactions:
+      title: "Усі транзакції"
+      user: "Користувач"
+      title_column: "Транзакція"
+      points: "Бали"
+      status: "Статус"
+      source: "Джерело"
+      order: "Замовлення"
+      created: "Створено"
     access_only: "Доступ лише для адміністратора."
+  time:
+    formats:
+      short: "%d.%m.%Y, %H:%M"
   forms:
     log_in: "Увійти"
     sign_up: "Зареєструватися"
@@ -135,3 +162,39 @@ uk:
       not_saved:
         one: "1 помилка завадила зберегти %{resource}:"
         other: "%{count} помилок завадили зберегти %{resource}:"
+  datetime:
+    distance_in_words:
+      half_a_minute: "пів хвилини"
+      less_than_x_seconds:
+        one: "менше ніж 1 секунду"
+        other: "менше ніж %{count} секунд"
+      x_seconds:
+        one: "1 секунду"
+        other: "%{count} секунд"
+      less_than_x_minutes:
+        one: "менше ніж хвилину"
+        other: "менше ніж %{count} хвилин"
+      x_minutes:
+        one: "1 хвилину"
+        other: "%{count} хвилин"
+      about_x_hours:
+        one: "близько 1 години"
+        other: "близько %{count} годин"
+      x_days:
+        one: "1 день"
+        other: "%{count} днів"
+      about_x_months:
+        one: "близько 1 місяця"
+        other: "близько %{count} місяців"
+      x_months:
+        one: "1 місяць"
+        other: "%{count} місяців"
+      about_x_years:
+        one: "близько 1 року"
+        other: "близько %{count} років"
+      over_x_years:
+        one: "понад 1 рік"
+        other: "понад %{count} років"
+      almost_x_years:
+        one: "майже 1 рік"
+        other: "майже %{count} років"

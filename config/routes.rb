@@ -18,5 +18,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "dashboard" => "dashboard#index"
+    get "users" => "users#index"
+    get "admins" => "users#admins"
+    get "customers" => "users#customers"
+    get "users/:id/transactions" => "users#transactions", as: :user_transactions
+    get "transactions" => "transactions#index"
   end
 end

@@ -1,0 +1,41 @@
+<main class="dashboard-shell">
+  <section class="panel admin-table-page">
+    <div class="panel-header">
+      <div>
+        <span class="eyebrow"><%= t("admin.eyebrow") %></span>
+        <h1><%= t("admin.users.user_transactions_title", email: @user.email) %></h1>
+      </div>
+      <%= link_to t("admin.back_to_admin"), @return_to, class: "button button-secondary" %>
+    </div>
+
+    <div class="admin-table-wrapper">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th><%= t("admin.transactions.title_column") %></th>
+            <th><%= t("admin.transactions.points") %></th>
+            <th><%= t("admin.transactions.status") %></th>
+            <th><%= t("admin.transactions.source") %></th>
+            <th><%= t("admin.transactions.order") %></th>
+            <th><%= t("admin.transactions.created") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @transactions.each do |transaction| %>
+            <tr>
+              <td>
+                <strong><%= transaction.title %></strong>
+                <span><%= transaction.description %></span>
+              </td>
+              <td><%= number_with_delimiter(transaction.points) %></td>
+              <td><span class="tier-badge"><%= transaction.status %></span></td>
+              <td><%= transaction.source %></td>
+              <td><%= transaction.order_number || "—" %></td>
+              <td><%= l(transaction.created_at, format: :short) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

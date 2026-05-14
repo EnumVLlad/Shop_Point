@@ -2,20 +2,20 @@
   <section class="panel deals-page">
     <div class="panel-header">
       <div>
-        <span class="eyebrow">Admin area</span>
-        <h1>Admin dashboard</h1>
+        <span class="eyebrow"><%= t("admin.eyebrow") %></span>
+        <h1><%= t("admin.title") %></h1>
       </div>
-      <%= link_to "User dashboard", dashboard_path, class: "button button-secondary" %>
+      <%= link_to t("admin.user_dashboard"), dashboard_path, class: "button button-secondary" %>
     </div>
 
-    <p class="page-lead">Manage LoyaltyCore users, campaigns, webhook activity, and future store discounts from this admin panel.</p>
+    <p class="page-lead"><%= t("admin.lead") %></p>
 
     <section class="stats-grid">
       <% @admin_stats.each do |stat| %>
         <article class="stat-card">
           <span><%= stat[:label] %></span>
           <strong><%= stat[:value] %></strong>
-          <small>Admin overview</small>
+          <small><%= t("admin.overview") %></small>
         </article>
       <% end %>
     </section>

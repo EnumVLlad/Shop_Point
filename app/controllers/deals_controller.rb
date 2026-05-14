@@ -1,9 +1,9 @@
 class DealsController < ApplicationController
   def index
     @deals = [
-      { title: "Gold member bonus", description: "Extra 7% points on selected fashion purchases", badge: "Gold" },
-      { title: "Weekend cashback", description: "Earn double points for weekend orders", badge: "Limited" },
-      { title: "Partner store rewards", description: "Special loyalty rewards from connected shops", badge: "Partner" }
+      { title: t("deals.items.gold.title"), description: t("deals.items.gold.description"), badge: t("deals.items.gold.badge") },
+      { title: t("deals.items.weekend.title"), description: t("deals.items.weekend.description"), badge: t("deals.items.weekend.badge") },
+      { title: t("deals.items.partner.title"), description: t("deals.items.partner.description"), badge: t("deals.items.partner.badge") }
     ]
   end
 end

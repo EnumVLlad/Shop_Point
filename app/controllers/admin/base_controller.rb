@@ -6,7 +6,7 @@ module Admin
     private
 
     def authorize_admin!
-      redirect_to dashboard_path, alert: "Admin access only." unless current_user.admin?
+      redirect_to dashboard_path, alert: t("admin.access_only") unless current_user.admin?
     end
   end
 end

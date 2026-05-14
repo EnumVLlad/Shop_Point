@@ -1,0 +1,137 @@
+uk:
+  app:
+    brand: "LoyaltyCore"
+    language: "Мова"
+    english: "EN"
+    ukrainian: "UK"
+    nav:
+      deals: "Пропозиції"
+      dashboard: "Кабінет"
+      admin: "Адмін"
+      sign_in: "Увійти"
+      sign_up: "Зареєструватися"
+      sign_out: "Вийти"
+  home:
+    eyebrow: "Винагороди Shop Point"
+    title: "Знаходьте кращі пропозиції у ваших улюблених магазинах"
+    description: "Переглядайте публічні знижки, сезонні кампанії та можливості програми лояльності. Створіть акаунт, щоб відкрити персональний кабінет LoyaltyCore."
+    create_account: "Створити акаунт"
+    sign_in: "Увійти"
+    view_public_deals: "Переглянути пропозиції"
+    bonus_label: "Бонус нового учасника"
+    starter_points: "Стартові бали"
+    bonus_description: "Зареєструйтеся, щоб накопичувати бали, відстежувати транзакції та отримувати персональні пропозиції."
+    store_offer: "Пропозиція магазину"
+    deals:
+      weekend_discounts:
+        title: "Знижки вихідного дня"
+        description: "Відкривайте обмежені за часом пропозиції від підключених e-commerce магазинів."
+      loyalty_rewards:
+        title: "Бонуси лояльності"
+        description: "Створіть акаунт, щоб накопичувати бали та відкривати персональні бонуси."
+      partner_campaigns:
+        title: "Партнерські кампанії"
+        description: "Стежте за новими кампаніями та спеціальними пропозиціями від партнерів маркетплейсу."
+  deals:
+    eyebrow: "Винагороди клієнта"
+    title: "Спеціальні пропозиції"
+    back: "Назад до кабінету"
+    lead: "Пізніше на цій сторінці будуть знижки магазину, бонусні кампанії та персональні пропозиції для постійних клієнтів."
+    view_offer: "Переглянути пропозицію"
+    items:
+      gold:
+        title: "Бонус Gold-учасника"
+        description: "Додаткові 7% балів за вибрані покупки в категорії fashion"
+        badge: "Gold"
+      weekend:
+        title: "Кешбек вихідного дня"
+        description: "Отримуйте подвійні бали за замовлення у вихідні"
+        badge: "Обмежено"
+      partner:
+        title: "Винагороди партнерських магазинів"
+        description: "Спеціальні бонуси лояльності від підключених магазинів"
+        badge: "Партнер"
+  dashboard:
+    eyebrow: "LoyaltyCore для E-commerce"
+    title: "Кабінет лояльності клієнта"
+    description: "Відстежуйте webhooks покупок, рахуйте бонусні бали, керуйте рівнями лояльності та переглядайте історію транзакцій в одному кабінеті."
+    view_transactions: "Переглянути транзакції"
+    process_webhook: "Обробити webhook"
+    special_deals: "Спеціальні пропозиції"
+    current_balance: "Поточний баланс"
+    tier_suffix: "рівень"
+    starter: "Стартовий"
+    points_to_tier: "%{points} балів до %{tier}"
+    top_tier: "Досягнуто найвищого рівня"
+    stats:
+      available_points: "Доступні бали"
+      loyalty_tier: "Рівень лояльності"
+      purchases_tracked: "Відстежені покупки"
+      bonus_rate: "Бонусна ставка"
+      points_to_next: "%{points} балів до наступного рівня"
+      next: "Наступний: %{tier}"
+      policy_scope: "Видимість обмежена policy_scope"
+      multiplier_active: "Множник %{tier} активний"
+    transactions:
+      eyebrow: "Активність"
+      title: "Історія транзакцій"
+      export_csv: "Експорт CSV"
+      ago: "%{time} тому"
+    webhooks:
+      eyebrow: "B2B API"
+      title: "Прийом webhook"
+      description: "Вхідні покупки перевіряються, проходять через interactors і перетворюються на бали лояльності."
+      receive: "Отримати webhook покупки"
+      calculate: "Розрахувати бонуси"
+      update: "Оновити рівень і баланс"
+      broadcast: "Надіслати оновлення транзакції"
+      docs: "Відкрити API docs"
+  admin:
+    eyebrow: "Адмін-зона"
+    title: "Адмін-панель"
+    user_dashboard: "Кабінет користувача"
+    lead: "Керуйте користувачами LoyaltyCore, кампаніями, webhook-активністю та майбутніми знижками магазину з цієї адмін-панелі."
+    overview: "Огляд адміністратора"
+    stats:
+      registered_users: "Зареєстровані користувачі"
+      admins: "Адміни"
+      customers: "Клієнти"
+      transactions: "Транзакції"
+    access_only: "Доступ лише для адміністратора."
+  forms:
+    log_in: "Увійти"
+    sign_up: "Зареєструватися"
+    email: "Email"
+    password: "Пароль"
+    password_confirmation: "Підтвердження пароля"
+    remember_me: "Запамʼятати мене"
+    characters_minimum: "мінімум %{count} символів"
+    forgot_password: "Забули пароль?"
+    resend_confirmation: "Надіслати інструкції підтвердження ще раз"
+    change_password: "Змінити пароль"
+    new_password: "Новий пароль"
+    confirm_new_password: "Підтвердьте новий пароль"
+    change_my_password: "Змінити мій пароль"
+    send_reset: "Надіслати інструкції для скидання пароля"
+    confirmation_missing: "Не отримали інструкції підтвердження?"
+    unlock_missing: "Не отримали інструкції розблокування?"
+  devise:
+    sessions:
+      signed_in: "Вхід виконано успішно."
+      signed_out: "Ви успішно вийшли."
+      already_signed_out: "Ви успішно вийшли."
+    registrations:
+      signed_up: "Вітаємо! Ви успішно зареєструвалися."
+      updated: "Ваш акаунт успішно оновлено."
+      destroyed: "Ваш акаунт успішно видалено."
+    failure:
+      already_authenticated: "Ви вже увійшли."
+      unauthenticated: "Потрібно увійти або зареєструватися перед продовженням."
+      invalid: "Невірний %{authentication_keys} або пароль."
+      not_found_in_database: "Невірний %{authentication_keys} або пароль."
+      timeout: "Ваша сесія завершилася. Увійдіть знову."
+  errors:
+    messages:
+      not_saved:
+        one: "1 помилка завадила зберегти %{resource}:"
+        other: "%{count} помилок завадили зберегти %{resource}:"

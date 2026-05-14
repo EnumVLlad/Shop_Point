@@ -69,6 +69,32 @@ a {
   gap: 10px;
 }
 
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 3px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.04));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 10px 28px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(18px) saturate(1.4);
+}
+
+.language-switcher a {
+  min-width: 34px;
+  padding: 7px 9px;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+}
+
+.language-switcher .active-locale {
+  background: rgba(255, 255, 255, 0.14);
+  color: white;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
 .site-nav a,
 .nav-button {
   border: 0;

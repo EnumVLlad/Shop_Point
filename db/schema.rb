@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_13_091400) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_18_110600) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -26,8 +26,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_13_091400) do
   create_table "transactions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "description", null: false
+    t.decimal "eligible_amount", precision: 10, scale: 2
     t.string "order_number"
     t.integer "points", default: 0, null: false
+    t.decimal "purchase_amount", precision: 10, scale: 2
+    t.integer "redeemed_points", default: 0, null: false
     t.string "source", default: "purchase", null: false
     t.string "status", default: "Completed", null: false
     t.string "title", null: false
@@ -47,6 +50,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_13_091400) do
     t.string "reset_password_token"
     t.integer "role", default: 0, null: false
     t.bigint "tier_id"
+    t.integer "tier_points", default: 0, null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

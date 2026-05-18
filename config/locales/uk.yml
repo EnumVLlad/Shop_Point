@@ -72,7 +72,7 @@ uk:
       next: "Наступний: %{tier}"
       policy_scope: "Видимість обмежена policy_scope"
       personal_history: "Ваша особиста історія транзакцій"
-      multiplier_active: "Множник %{tier} активний"
+      multiplier_active: "Кешбек рівня %{tier} активний"
     transactions:
       eyebrow: "Активність"
       title: "Історія транзакцій"

@@ -1,28 +1,21 @@
-bronze = Tier.find_or_create_by!(name: "Bronze") do |tier|
-  tier.min_points = 0
-  tier.bonus_rate = 1
-end
+bronze = Tier.find_or_initialize_by(name: "Bronze")
+bronze.update!(min_points: 0, bonus_rate: 10)
 
-silver = Tier.find_or_create_by!(name: "Silver") do |tier|
-  tier.min_points = 5_000
-  tier.bonus_rate = 3
-end
+silver = Tier.find_or_initialize_by(name: "Silver")
+silver.update!(min_points: 1_000, bonus_rate: 15)
 
-gold = Tier.find_or_create_by!(name: "Gold") do |tier|
-  tier.min_points = 10_000
-  tier.bonus_rate = 7
-end
+gold = Tier.find_or_initialize_by(name: "Gold")
+gold.update!(min_points: 2_000, bonus_rate: 20)
 
-Tier.find_or_create_by!(name: "Platinum") do |tier|
-  tier.min_points = 15_000
-  tier.bonus_rate = 10
-end
+platinum = Tier.find_or_initialize_by(name: "Platinum")
+platinum.update!(min_points: 3_000, bonus_rate: 25)
 
 admin = User.find_or_initialize_by(email: ENV.fetch("ADMIN_EMAIL", "vladpilipenko640@gmail.com"))
 admin.password = ENV.fetch("ADMIN_PASSWORD", "Pilipenko1234") if admin.new_record?
 admin.password_confirmation = ENV.fetch("ADMIN_PASSWORD", "Pilipenko1234") if admin.new_record?
 admin.role = :admin
 admin.points_balance = 10_000
+admin.tier_points = 10_000
 admin.save!
 
 customer = User.find_or_initialize_by(email: "alex.morgan@example.com")
@@ -30,6 +23,7 @@ customer.password = "password123" if customer.new_record?
 customer.password_confirmation = "password123" if customer.new_record?
 customer.role = :customer
 customer.points_balance = 12_480
+customer.tier_points = 12_480
 customer.save!
 
 [

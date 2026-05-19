@@ -14,21 +14,37 @@ admin = User.find_or_initialize_by(email: ENV.fetch("ADMIN_EMAIL", "vladpilipenk
 admin.password = ENV.fetch("ADMIN_PASSWORD", "Pilipenko1234") if admin.new_record?
 admin.password_confirmation = ENV.fetch("ADMIN_PASSWORD", "Pilipenko1234") if admin.new_record?
 admin.role = :admin
-admin.points_balance = 10_000
-admin.tier_points = 10_000
+admin.points_balance = 2_000
+admin.tier_points = 2_000
 admin.save!
 
 customer = User.find_or_initialize_by(email: "alex.morgan@example.com")
 customer.password = "password123" if customer.new_record?
 customer.password_confirmation = "password123" if customer.new_record?
 customer.role = :customer
-customer.points_balance = 12_480
-customer.tier_points = 12_480
+customer.points_balance = 3_200
+customer.tier_points = 3_200
 customer.save!
+
+silver_customer = User.find_or_initialize_by(email: "maria.silver@example.com")
+silver_customer.password = "password123" if silver_customer.new_record?
+silver_customer.password_confirmation = "password123" if silver_customer.new_record?
+silver_customer.role = :customer
+silver_customer.points_balance = 1_250
+silver_customer.tier_points = 1_250
+silver_customer.save!
+
+bronze_customer = User.find_or_initialize_by(email: "roman.bronze@example.com")
+bronze_customer.password = "password123" if bronze_customer.new_record?
+bronze_customer.password_confirmation = "password123" if bronze_customer.new_record?
+bronze_customer.role = :customer
+bronze_customer.points_balance = 450
+bronze_customer.tier_points = 450
+bronze_customer.save!
 
 [
   { title: "Order #LC-1048", description: "Purchase webhook processed", points: 420, status: "Completed", source: "purchase", order_number: "LC-1048", created_at: 2.minutes.ago },
-  { title: "Tier bonus", description: "Gold loyalty multiplier", points: 95, status: "Applied", source: "tier_bonus", order_number: nil, created_at: 18.minutes.ago },
+  { title: "Tier bonus", description: "Platinum cashback reward", points: 95, status: "Applied", source: "tier_bonus", order_number: nil, created_at: 18.minutes.ago },
   { title: "Order #LC-1047", description: "Fashion category purchase", points: 310, status: "Completed", source: "purchase", order_number: "LC-1047", created_at: 1.hour.ago },
   { title: "Manual adjustment", description: "Support compensation", points: 150, status: "Reviewed", source: "manual", order_number: nil, created_at: 1.day.ago },
   { title: "Order #LC-1046", description: "Electronics category purchase", points: 580, status: "Completed", source: "purchase", order_number: "LC-1046", created_at: 2.days.ago },

@@ -1,7 +1,7 @@
-module Purchases
+module Transactions
   class Process
     include Interactor::Organizer
 
-    organize Purchases::Validate, Purchases::CalculatePoints, Purchases::Apply
+    organize Transactions::Validate, Transactions::CalculatePoints, Transactions::Apply
   end
 end

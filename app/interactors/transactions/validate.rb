@@ -1,11 +1,11 @@
-module Purchases
+module Transactions
   class Validate
     include Interactor
 
     REQUIRED_ATTRIBUTES = %i[user amount order_number].freeze
 
     def call
-      context.fail!(error: "Missing purchase data") if missing_attributes?
+      context.fail!(error: "Missing transaction data") if missing_attributes?
       context.fail!(error: "User must exist") unless context.user.is_a?(User) && context.user.persisted?
       context.fail!(error: "Amount must be greater than zero") unless amount.positive?
       context.fail!(error: "Redeemed points cannot be negative") if redeemed_points.negative?

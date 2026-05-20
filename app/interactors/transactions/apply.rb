@@ -1,4 +1,4 @@
-module Purchases
+module Transactions
   class Apply
     include Interactor
 
@@ -19,7 +19,7 @@ module Purchases
     def transaction_attributes
       {
         title: "Order ##{context.order_number}",
-        description: context.description.presence || "Purchase webhook processed",
+        description: context.description.presence || "Transaction webhook processed",
         points: context.points,
         status: "Completed",
         source: "purchase",

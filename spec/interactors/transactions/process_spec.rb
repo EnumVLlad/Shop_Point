@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Purchases::Process do
+RSpec.describe Transactions::Process do
   describe ".call" do
     it "creates a purchase transaction and updates the user balance" do
       tier = create(:tier, bonus_rate: 15)
@@ -15,7 +15,7 @@ RSpec.describe Purchases::Process do
       expect(result.transaction).to have_attributes(
         user:,
         title: "Order #LC-2001",
-        description: "Purchase webhook processed",
+        description: "Transaction webhook processed",
         points: 18,
         status: "Completed",
         source: "purchase",
@@ -81,13 +81,13 @@ RSpec.describe Purchases::Process do
       expect(user.tier).to eq(tier)
     end
 
-    it "fails when required purchase data is missing" do
+    it "fails when required transaction data is missing" do
       user = create(:user)
 
       result = described_class.call(user:, amount: 100)
 
       expect(result).to be_failure
-      expect(result.error).to eq("Missing purchase data")
+      expect(result.error).to eq("Missing transaction data")
       expect(user.reload.points_balance).to eq(0)
       expect(Transaction.count).to eq(0)
     end

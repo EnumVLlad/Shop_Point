@@ -1,0 +1,9 @@
+// Active Admin's main stylesheet.
+//
+// Built via dartsass-rails into app/assets/builds/active_admin.css and
+// served by Propshaft. The AA gem ships partials under
+// app/assets/stylesheets/active_admin/, which we resolve with
+// `--load-path` configured in config/initializers/dartsass.rb.
+
+@import "active_admin/mixins";
+@import "active_admin/base";

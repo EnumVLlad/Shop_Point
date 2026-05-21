@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     dashboard_path
   end
 
+  def authorize_active_admin!
+    redirect_to dashboard_path, alert: t("admin.access_only") unless current_user&.admin?
+  end
+
   private
 
   def set_locale

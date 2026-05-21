@@ -14,6 +14,14 @@ class User < ApplicationRecord
     self.tier = Tier.where("min_points <= ?", tier_points).order(min_points: :desc).first
   end
 
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[id email role tier_id points_balance tier_points created_at updated_at]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[tier transactions]
+  end
+
   def dashboard_snapshot
     current_tier = tier || Tier.order(:min_points).first
     next_tier_record = Tier.where("min_points > ?", tier_points).order(:min_points).first

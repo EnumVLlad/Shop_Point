@@ -1,0 +1,11 @@
+<div id="<%= dom_id(transaction) %>" class="transaction-item">
+  <div>
+    <strong><%= transaction.title %></strong>
+    <span><%= transaction.description %></span>
+  </div>
+  <div class="transaction-meta">
+    <strong><%= number_with_delimiter(transaction.points) %></strong>
+    <span><%= transaction.status %></span>
+    <small><%= t("dashboard.transactions.ago", time: time_ago_in_words(transaction.created_at)) %></small>
+  </div>
+</div>

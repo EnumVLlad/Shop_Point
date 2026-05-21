@@ -10,11 +10,27 @@ module Transactions
         )
         context.transaction = context.user.transactions.create!(transaction_attributes)
       end
+      broadcast_dashboard_update
     rescue ActiveRecord::RecordInvalid => e
       context.fail!(error: e.record.errors.full_messages.to_sentence)
     end
 
     private
+
+    def broadcast_dashboard_update
+      Turbo::StreamsChannel.broadcast_replace_to(
+        [context.user, :dashboard],
+        target: "dashboard_balance",
+        partial: "dashboard/balance",
+        locals: context.user.dashboard_snapshot
+      )
+      Turbo::StreamsChannel.broadcast_prepend_to(
+        [context.user, :dashboard],
+        target: "dashboard_transactions",
+        partial: "dashboard/transaction",
+        locals: { transaction: context.transaction }
+      )
+    end
 
     def transaction_attributes
       {

@@ -1,0 +1,9 @@
+<div id="dashboard_balance" class="points-card">
+  <span class="points-label"><%= t("dashboard.current_balance") %></span>
+  <strong><%= number_with_delimiter(customer.points_balance) %></strong>
+  <span class="tier-badge"><%= tier&.name || t("dashboard.starter") %> <%= t("dashboard.tier_suffix") %></span>
+  <div class="progress-track">
+    <div class="progress-bar" style="width: <%= tier_progress %>%"></div>
+  </div>
+  <small><%= next_tier ? t("dashboard.points_to_tier", points: number_with_delimiter(points_to_next_tier), tier: next_tier.name) : t("dashboard.top_tier") %></small>
+</div>

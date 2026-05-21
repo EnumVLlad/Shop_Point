@@ -1,0 +1,5 @@
+expire_points:
+  cron: "0 3 * * *"
+  class: "ExpirePointsJob"
+  queue: default
+  description: "Expire loyalty bonuses older than 30 days"

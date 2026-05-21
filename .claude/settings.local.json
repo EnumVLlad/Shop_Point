@@ -8,7 +8,8 @@
       "Bash(rmdir app/interactors/purchases)",
       "Bash(rmdir spec/interactors/purchases)",
       "Bash(mv app/controllers/api/v1/purchases_controller.rb app/controllers/api/v1/transactions_controller.rb)",
-      "Bash(mv spec/integration/api/v1/purchases_spec.rb spec/integration/api/v1/transactions_spec.rb)"
+      "Bash(mv spec/integration/api/v1/purchases_spec.rb spec/integration/api/v1/transactions_spec.rb)",
+      "Bash(grep -v \"^\\\\s*$\")"
     ]
   }
 }

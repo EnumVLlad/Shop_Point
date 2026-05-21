@@ -2,6 +2,18 @@ require "rails_helper"
 
 RSpec.describe Transactions::Process do
   describe ".call" do
+    it "broadcasts dashboard balance and new transaction to the user stream" do
+      tier = create(:tier, bonus_rate: 10)
+      user = create(:user, tier:, points_balance: 100)
+
+      expect(Turbo::StreamsChannel).to receive(:broadcast_replace_to)
+        .with([user, :dashboard], hash_including(target: "dashboard_balance", partial: "dashboard/balance"))
+      expect(Turbo::StreamsChannel).to receive(:broadcast_prepend_to)
+        .with([user, :dashboard], hash_including(target: "dashboard_transactions", partial: "dashboard/transaction"))
+
+      described_class.call(user:, amount: 50, order_number: "LC-BC-1")
+    end
+
     it "creates a purchase transaction and updates the user balance" do
       tier = create(:tier, bonus_rate: 15)
       user = create(:user, tier:, points_balance: 100)

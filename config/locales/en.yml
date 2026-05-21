@@ -101,7 +101,7 @@ en:
       next: "Next: %{tier}"
       policy_scope: "Visible through policy scope"
       personal_history: "Your personal transaction history"
-      multiplier_active: "%{tier} multiplier active"
+      multiplier_active: "%{tier} cashback rate active"
     transactions:
       eyebrow: "Live activity"
       title: "Transaction history"

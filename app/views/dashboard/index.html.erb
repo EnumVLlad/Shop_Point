@@ -1,3 +1,5 @@
+<%= turbo_stream_from [current_user, :dashboard] %>
+
 <main class="dashboard-shell">
   <section class="hero-card">
     <div class="hero-content">
@@ -10,15 +12,7 @@
         <%= link_to t("dashboard.special_deals"), deals_path, class: "button button-deals" %>
       </div>
     </div>
-    <div class="points-card">
-      <span class="points-label"><%= t("dashboard.current_balance") %></span>
-      <strong><%= number_with_delimiter(@customer.points_balance) %></strong>
-      <span class="tier-badge"><%= @tier&.name || t("dashboard.starter") %> <%= t("dashboard.tier_suffix") %></span>
-      <div class="progress-track">
-        <div class="progress-bar" style="width: <%= @tier_progress %>%"></div>
-      </div>
-      <small><%= @next_tier ? t("dashboard.points_to_tier", points: number_with_delimiter(@points_to_next_tier), tier: @next_tier.name) : t("dashboard.top_tier") %></small>
-    </div>
+    <%= render "balance", customer: @customer, tier: @tier, next_tier: @next_tier, points_to_next_tier: @points_to_next_tier, tier_progress: @tier_progress %>
   </section>
 
   <section class="stats-grid">
@@ -41,20 +35,8 @@
         <%= link_to t("dashboard.transactions.export_csv"), "#", class: "button button-ghost" %>
       </div>
 
-      <div class="transaction-list">
-        <% @transactions.each do |transaction| %>
-          <div class="transaction-item">
-            <div>
-              <strong><%= transaction.title %></strong>
-              <span><%= transaction.description %></span>
-            </div>
-            <div class="transaction-meta">
-              <strong><%= number_with_delimiter(transaction.points) %></strong>
-              <span><%= transaction.status %></span>
-              <small><%= t("dashboard.transactions.ago", time: time_ago_in_words(transaction.created_at)) %></small>
-            </div>
-          </div>
-        <% end %>
+      <div id="dashboard_transactions" class="transaction-list">
+        <%= render partial: "transaction", collection: @transactions, as: :transaction %>
       </div>
     </article>
 

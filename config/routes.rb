@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => "/api-docs"
+  mount Rswag::Api::Engine => "/api-docs"
+
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -23,5 +26,11 @@ Rails.application.routes.draw do
     get "customers" => "users#customers"
     get "users/:id/transactions" => "users#transactions", as: :user_transactions
     get "transactions" => "transactions#index"
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :transactions, only: :create
+    end
   end
 end

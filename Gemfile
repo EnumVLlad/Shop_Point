@@ -44,6 +44,7 @@ gem "interactor"
 gem "pundit"
 gem "rswag"
 gem "sidekiq"
+gem "sidekiq-cron"
 
 group :development, :test do
   gem "dotenv-rails"
